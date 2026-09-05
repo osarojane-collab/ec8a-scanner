@@ -162,8 +162,8 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
       accreditedVoters: int.tryParse(_accredited.text.trim()),
       sheetTotalVotesCast: total,
       rejectedBallots: int.tryParse(_rejected.text.trim()),
-      source:
-          widget.sourceOverride ?? (widget.photoPath == null ? 'manual' : 'ocr'),
+      source: widget.sourceOverride ??
+          (widget.photoPath == null ? 'manual' : 'ocr'),
       ocrConfidence: confidences.isEmpty
           ? null
           : confidences.fold(0.0, (a, b) => a + b) / confidences.length,

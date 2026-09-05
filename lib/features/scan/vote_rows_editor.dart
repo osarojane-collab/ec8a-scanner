@@ -41,8 +41,8 @@ class VoteRowsEditor extends StatelessWidget {
                   subtitle: rows[i].confidence < 1
                       ? const Text(
                           'low OCR confidence - check the photo',
-                          style: TextStyle(
-                              fontSize: 11, color: Colors.deepOrange),
+                          style:
+                              TextStyle(fontSize: 11, color: Colors.deepOrange),
                         )
                       : null,
                 ),
@@ -91,11 +91,13 @@ class AddPartyDialog extends StatelessWidget {
         children: [
           TextField(
             controller: abbr,
-            decoration: const InputDecoration(labelText: 'Abbreviation (e.g. APC)'),
+            decoration:
+                const InputDecoration(labelText: 'Abbreviation (e.g. APC)'),
           ),
           TextField(
             controller: name,
-            decoration: const InputDecoration(labelText: 'Full name (optional)'),
+            decoration:
+                const InputDecoration(labelText: 'Full name (optional)'),
           ),
           TextField(
             controller: votes,

@@ -40,9 +40,9 @@ class AdminRepository {
 
   Future<void> assignUnit(String teamId, String puId) =>
       _c.from('team_assignments').upsert(
-            {'team_id': teamId, 'polling_unit_id': puId},
-            onConflict: 'team_id,polling_unit_id',
-          );
+        {'team_id': teamId, 'polling_unit_id': puId},
+        onConflict: 'team_id,polling_unit_id',
+      );
 
   Future<void> unassignUnit(String teamId, String puId) => _c
       .from('team_assignments')
@@ -52,9 +52,9 @@ class AdminRepository {
 
   Future<void> addMember(String teamId, String userId, {bool lead = false}) =>
       _c.from('team_members').upsert(
-            {'team_id': teamId, 'user_id': userId, 'is_lead': lead},
-            onConflict: 'team_id,user_id',
-          );
+        {'team_id': teamId, 'user_id': userId, 'is_lead': lead},
+        onConflict: 'team_id,user_id',
+      );
 
   Future<void> removeMember(String teamId, String userId) => _c
       .from('team_members')
@@ -68,10 +68,10 @@ class AdminRepository {
   Future<void> updatePartyName(String partyId, String name) =>
       _c.from('parties').update({'name': name}).eq('id', partyId);
 
-  Future<void> setHomeParty(String partyId) => _c
-      .from('app_settings')
-      .update({'home_party_id': partyId, 'updated_at': DateTime.now().toUtc().toIso8601String()})
-      .eq('id', 1);
+  Future<void> setHomeParty(String partyId) => _c.from('app_settings').update({
+        'home_party_id': partyId,
+        'updated_at': DateTime.now().toUtc().toIso8601String()
+      }).eq('id', 1);
 
   /// Team members (with profile names/emails) for the admin UI.
   Future<List<Map<String, dynamic>>> teamMemberRows(String teamId) async {
@@ -100,11 +100,9 @@ class AdminRepository {
     return rows.map((r) => r['polling_unit_id'] as String).toList();
   }
 
-  Future<void> setActiveElection(String electionId) => _c
-      .from('app_settings')
-      .update({
+  Future<void> setActiveElection(String electionId) =>
+      _c.from('app_settings').update({
         'active_election_id': electionId,
         'updated_at': DateTime.now().toUtc().toIso8601String(),
-      })
-      .eq('id', 1);
+      }).eq('id', 1);
 }

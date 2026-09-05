@@ -51,11 +51,11 @@ class _ExportTabState extends ConsumerState<ExportTab> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('${rollup.length} polling unit(s), ${parties.length} parties'),
+              Text(
+                  '${rollup.length} polling unit(s), ${parties.length} parties'),
               const SizedBox(height: 12),
               const Text('Saved to:'),
-              SelectableText(f.path,
-                  style: const TextStyle(fontSize: 12)),
+              SelectableText(f.path, style: const TextStyle(fontSize: 12)),
             ],
           ),
           actions: [
@@ -97,7 +97,8 @@ class _ExportTabState extends ConsumerState<ExportTab> {
           children: [
             const Icon(Icons.ios_share, size: 48),
             const SizedBox(height: 12),
-            Text('Export results', style: Theme.of(context).textTheme.titleMedium),
+            Text('Export results',
+                style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
             const Text(
               'Generates a CSV with the latest entry for every polling unit '

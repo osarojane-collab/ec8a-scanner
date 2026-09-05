@@ -94,8 +94,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   if (_error != null) ...[
                     Text(
                       _error!,
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.error),
+                      style:
+                          TextStyle(color: Theme.of(context).colorScheme.error),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 12),

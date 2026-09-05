@@ -52,8 +52,8 @@ extension DemoStoreQueries on DemoStore {
     final totals = <String, int>{};
     final puCounts = <String, int>{};
     for (final r in roll) {
-      final latest = submissions
-          .firstWhere((s) => s.id == r.latestSubmissionId);
+      final latest =
+          submissions.firstWhere((s) => s.id == r.latestSubmissionId);
       for (final v in latest.votes) {
         totals[v.abbr] = (totals[v.abbr] ?? 0) + v.votes;
         puCounts[v.abbr] = (puCounts[v.abbr] ?? 0) + 1;

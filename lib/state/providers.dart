@@ -21,10 +21,9 @@ final supabaseProvider =
 
 /// Repositories: demo implementations when running without Supabase
 /// credentials, otherwise the real Supabase-backed ones.
-final authRepoProvider = Provider<AuthRepository>((ref) =>
-    AppConfig.demoMode
-        ? DemoAuthRepository.I
-        : AuthRepository(ref.watch(supabaseProvider)));
+final authRepoProvider = Provider<AuthRepository>((ref) => AppConfig.demoMode
+    ? DemoAuthRepository.I
+    : AuthRepository(ref.watch(supabaseProvider)));
 
 final catalogRepoProvider = Provider<CatalogRepository>((ref) =>
     AppConfig.demoMode
@@ -41,10 +40,9 @@ final submissionRepoProvider = Provider<SubmissionRepository>((ref) =>
         ? DemoSubmissionRepository()
         : SubmissionRepository(ref.watch(supabaseProvider)));
 
-final adminRepoProvider = Provider<AdminRepository>((ref) =>
-    AppConfig.demoMode
-        ? DemoAdminRepository()
-        : AdminRepository(ref.watch(supabaseProvider)));
+final adminRepoProvider = Provider<AdminRepository>((ref) => AppConfig.demoMode
+    ? DemoAdminRepository()
+    : AdminRepository(ref.watch(supabaseProvider)));
 
 /// Emits the signed-in user immediately, then every auth change.
 /// (App-level identity: real mode maps the Supabase session; demo mode
@@ -121,8 +119,8 @@ final myTeamsProvider = FutureProvider<List<Team>>((ref) async {
   return all.where((t) => ids.contains(t.id)).toList();
 });
 
-final teamsAllProvider = FutureProvider<List<Team>>(
-    (ref) => ref.watch(catalogRepoProvider).teams());
+final teamsAllProvider =
+    FutureProvider<List<Team>>((ref) => ref.watch(catalogRepoProvider).teams());
 
 final profilesProvider = FutureProvider<List<Map<String, dynamic>>>(
     (ref) => ref.watch(adminRepoProvider).profilesList());
@@ -202,6 +200,7 @@ class DemoSubmissionFlow implements SubmissionFlow {
     return true;
   }
 }
+
 class SubmissionFlow {
   final Ref ref;
   SubmissionFlow(this.ref);
@@ -216,7 +215,8 @@ class SubmissionFlow {
         photoPath: localPhotoPath,
       ),
     );
-    final synced = await ref.read(syncServiceProvider.future).then((s) => s.flush());
+    final synced =
+        await ref.read(syncServiceProvider.future).then((s) => s.flush());
     ref.invalidate(pendingCountProvider);
     ref.invalidate(puRollupProvider);
     ref.invalidate(tallyProvider);

@@ -6,8 +6,7 @@ void main() {
     const known = {'NDC', 'APC', 'PDP', 'LP', 'NNPP'};
 
     test('parses JSON payloads against the party catalog', () {
-      const payload =
-          '{"PU":"25/06/01/001","APC":87,"NDC":152,"TOTAL":291}';
+      const payload = '{"PU":"25/06/01/001","APC":87,"NDC":152,"TOTAL":291}';
       final r = parseEc8aQr(payload, known);
       expect(r.puCode, '25/06/01/001');
       expect(r.rows.length, 2); // TOTAL is filtered as a stopword

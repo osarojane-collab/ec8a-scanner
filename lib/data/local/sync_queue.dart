@@ -46,8 +46,7 @@ class SyncQueue {
       final raw = await file.readAsString();
       final list = jsonDecode(raw) as List<dynamic>;
       return list
-          .map((e) =>
-              PendingItem.fromJson(Map<String, dynamic>.from(e as Map)))
+          .map((e) => PendingItem.fromJson(Map<String, dynamic>.from(e as Map)))
           .toList();
     } catch (_) {
       // Corrupted -> start clean; server-side idempotency covers any replays.

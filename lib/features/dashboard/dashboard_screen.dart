@@ -101,9 +101,8 @@ class _TotalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: highlighted
-          ? Theme.of(context).colorScheme.primaryContainer
-          : null,
+      color:
+          highlighted ? Theme.of(context).colorScheme.primaryContainer : null,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         child: Row(

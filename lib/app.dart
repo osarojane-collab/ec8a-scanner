@@ -19,8 +19,7 @@ class Ec8aScannerApp extends ConsumerWidget {
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       home: session.isLoading
-          ? const Scaffold(
-              body: Center(child: CircularProgressIndicator()))
+          ? const Scaffold(body: Center(child: CircularProgressIndicator()))
           : session.value == null
               ? const LoginScreen()
               : const HomeShell(),

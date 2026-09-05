@@ -53,8 +53,8 @@ class _AdminTeamDetailState extends ConsumerState<AdminTeamDetail> {
                 child: TextField(
                   controller: query,
                   autofocus: true,
-                  decoration: const InputDecoration(
-                      labelText: 'Search polling units'),
+                  decoration:
+                      const InputDecoration(labelText: 'Search polling units'),
                   onChanged: (_) => setD(() {}),
                 ),
               ),
@@ -83,9 +83,7 @@ class _AdminTeamDetailState extends ConsumerState<AdminTeamDetail> {
       ),
     );
     if (selected != null) {
-      await ref
-          .read(adminRepoProvider)
-          .assignUnit(widget.team.id, selected.id);
+      await ref.read(adminRepoProvider).assignUnit(widget.team.id, selected.id);
       _reload();
     }
   }
@@ -166,8 +164,7 @@ class _AdminTeamDetailState extends ConsumerState<AdminTeamDetail> {
                       title: Text('${pu.code} — ${pu.name}'),
                       subtitle: Text('${pu.ward} / ${pu.lga}'),
                       trailing: IconButton(
-                        icon: const Icon(Icons.remove_circle_outline,
-                            size: 18),
+                        icon: const Icon(Icons.remove_circle_outline, size: 18),
                         onPressed: () async {
                           await ref
                               .read(adminRepoProvider)
@@ -210,21 +207,17 @@ class _AdminTeamDetailState extends ConsumerState<AdminTeamDetail> {
                   for (final m in members)
                     ListTile(
                       dense: true,
-                      title: Text(((m['profiles'] as Map<String, dynamic>?)
-                                  ?['full_name'] ??
-                              'unknown') as String),
+                      title: Text(((m['profiles']
+                              as Map<String, dynamic>?)?['full_name'] ??
+                          'unknown') as String),
                       subtitle: Text(
-                          ((m['profiles'] as Map<String, dynamic>?)
-                                      ?['email'] ??
-                                  '') as String),
+                          ((m['profiles'] as Map<String, dynamic>?)?['email'] ??
+                              '') as String),
                       trailing: IconButton(
-                        icon: const Icon(Icons.remove_circle_outline,
-                            size: 18),
+                        icon: const Icon(Icons.remove_circle_outline, size: 18),
                         onPressed: () async {
-                          await ref
-                              .read(adminRepoProvider)
-                              .removeMember(
-                                  widget.team.id, m['user_id'] as String);
+                          await ref.read(adminRepoProvider).removeMember(
+                              widget.team.id, m['user_id'] as String);
                           _reload();
                         },
                       ),

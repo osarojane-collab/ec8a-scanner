@@ -64,23 +64,77 @@ class Ec8aParseResult {
 /// NOT political party abbreviations. Used by both the OCR text parser and
 /// the QR payload parser to avoid false party rows.
 const Set<String> ec8aStopWords = {
-  'STATE', 'FEDERAL', 'REPUBLIC', 'ELECTION', 'ELECTIONS', 'GENERAL',
-  'PRESIDENTIAL', 'GOVERNORSHIP', 'POLLING', 'UNIT', 'UNITS', 'PU',
-  'RESULTS', 'RESULT', 'SHEET', 'WARD', 'LGA', 'REGISTERED', 'ACCREDITED',
-  'VOTERS', 'VOTER', 'TOTAL', 'VOTES', 'CAST', 'BALLOT', 'BALLOTS',
-  'PAPER', 'PAPERS', 'ISSUED', 'UNUSED', 'USED', 'SPOILT', 'SPOILED',
-  'REJECTED', 'REJECT', 'SIGNATURE', 'SIGNATURES', 'SIGNED', 'NAME',
-  'NAMES', 'DATE', 'TIME', 'SERIAL', 'NUMBER', 'AGENT', 'AGENTS',
-  'OFFICIAL', 'OFFICIALS', 'INEC', 'FORM', 'EC8A', 'EC', 'SCORE',
-  'SCORES', 'PARTY', 'PARTIES', 'NO', 'AND', 'OF', 'THE', 'COLLATION',
-  'CENTRE', 'TYPE',
+  'STATE',
+  'FEDERAL',
+  'REPUBLIC',
+  'ELECTION',
+  'ELECTIONS',
+  'GENERAL',
+  'PRESIDENTIAL',
+  'GOVERNORSHIP',
+  'POLLING',
+  'UNIT',
+  'UNITS',
+  'PU',
+  'RESULTS',
+  'RESULT',
+  'SHEET',
+  'WARD',
+  'LGA',
+  'REGISTERED',
+  'ACCREDITED',
+  'VOTERS',
+  'VOTER',
+  'TOTAL',
+  'VOTES',
+  'CAST',
+  'BALLOT',
+  'BALLOTS',
+  'PAPER',
+  'PAPERS',
+  'ISSUED',
+  'UNUSED',
+  'USED',
+  'SPOILT',
+  'SPOILED',
+  'REJECTED',
+  'REJECT',
+  'SIGNATURE',
+  'SIGNATURES',
+  'SIGNED',
+  'NAME',
+  'NAMES',
+  'DATE',
+  'TIME',
+  'SERIAL',
+  'NUMBER',
+  'AGENT',
+  'AGENTS',
+  'OFFICIAL',
+  'OFFICIALS',
+  'INEC',
+  'FORM',
+  'EC8A',
+  'EC',
+  'SCORE',
+  'SCORES',
+  'PARTY',
+  'PARTIES',
+  'NO',
+  'AND',
+  'OF',
+  'THE',
+  'COLLATION',
+  'CENTRE',
+  'TYPE',
 };
 
 int? _extractIntAfter(String upperLine, List<String> labels) {
   for (final label in labels) {
     final i = upperLine.indexOf(label);
     if (i < 0) continue;
-    final m = RegExp(r'(\d{1,6})').firstMatch(upperLine.substring(i + label.length));
+    final m =
+        RegExp(r'(\d{1,6})').firstMatch(upperLine.substring(i + label.length));
     if (m != null) return int.tryParse(m.group(1)!);
   }
   return null;
@@ -92,8 +146,7 @@ String? _fullName(String rest) {
       .replaceAll(RegExp(r'\s+'), ' ')
       .trim();
   if (cleaned.isEmpty) return null;
-  final words =
-      cleaned.split(' ').where((w) => w.length > 1).take(6).join(' ');
+  final words = cleaned.split(' ').where((w) => w.length > 1).take(6).join(' ');
   return words.isEmpty ? null : words;
 }
 

@@ -11,8 +11,16 @@ void main() {
       1: TextEditingController(text: '87'),
     };
     final rows = [
-      const ParsedRow(abbr: 'NDC', fullName: 'Nigeria Democratic Congress', votes: 152, confidence: 1.0),
-      const ParsedRow(abbr: 'APC', fullName: 'All Progressives Congress', votes: 87, confidence: 1.0),
+      const ParsedRow(
+          abbr: 'NDC',
+          fullName: 'Nigeria Democratic Congress',
+          votes: 152,
+          confidence: 1.0),
+      const ParsedRow(
+          abbr: 'APC',
+          fullName: 'All Progressives Congress',
+          votes: 87,
+          confidence: 1.0),
     ];
 
     await tester.pumpWidget(
@@ -38,7 +46,8 @@ void main() {
       0: TextEditingController(text: '21'),
     };
     final rows = [
-      const ParsedRow(abbr: 'XYZ', fullName: 'Unknown Party', votes: 21, confidence: 0.5),
+      const ParsedRow(
+          abbr: 'XYZ', fullName: 'Unknown Party', votes: 21, confidence: 0.5),
     ];
 
     await tester.pumpWidget(
@@ -63,8 +72,16 @@ void main() {
       1: TextEditingController(text: '87'),
     };
     final rows = [
-      const ParsedRow(abbr: 'NDC', fullName: 'Nigeria Democratic Congress', votes: 152, confidence: 1.0),
-      const ParsedRow(abbr: 'APC', fullName: 'All Progressives Congress', votes: 87, confidence: 1.0),
+      const ParsedRow(
+          abbr: 'NDC',
+          fullName: 'Nigeria Democratic Congress',
+          votes: 152,
+          confidence: 1.0),
+      const ParsedRow(
+          abbr: 'APC',
+          fullName: 'All Progressives Congress',
+          votes: 87,
+          confidence: 1.0),
     ];
 
     await tester.pumpWidget(
@@ -93,7 +110,11 @@ void main() {
       0: TextEditingController(text: '152'),
     };
     final rows = [
-      const ParsedRow(abbr: 'NDC', fullName: 'Nigeria Democratic Congress', votes: 152, confidence: 1.0),
+      const ParsedRow(
+          abbr: 'NDC',
+          fullName: 'Nigeria Democratic Congress',
+          votes: 152,
+          confidence: 1.0),
     ];
 
     await tester.pumpWidget(

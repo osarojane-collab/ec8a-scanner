@@ -36,10 +36,9 @@ class _QrScanScreenState extends ConsumerState<QrScanScreen> {
     for (final barcode in capture.barcodes) {
       final raw = barcode.rawValue;
       if (raw == null || raw.trim().isEmpty) continue;
-      final known = ref.read(partiesProvider).valueOrNull
-              ?.map((p) => p.abbr)
-              .toSet() ??
-          <String>{};
+      final known =
+          ref.read(partiesProvider).valueOrNull?.map((p) => p.abbr).toSet() ??
+              <String>{};
       final result = parseEc8aQr(raw, known);
       if (result.rows.isEmpty) {
         // Not a results QR code - keep scanning.

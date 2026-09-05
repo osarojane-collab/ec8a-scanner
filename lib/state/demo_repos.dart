@@ -1,7 +1,6 @@
 import 'dart:async';
 
-import 'package:supabase_flutter/supabase_flutter.dart'
-    show AuthState, Session;
+import 'package:supabase_flutter/supabase_flutter.dart' show AuthState, Session;
 
 import '../data/models.dart';
 import '../data/repositories.dart';
@@ -41,8 +40,7 @@ class DemoAuthRepository implements AuthRepository {
   Future<void> signOut() => _ctrl.addStream(Stream.value(null));
 
   @override
-  Future<Map<String, dynamic>?> myProfile() async =>
-      DemoStore.I.profiles.first;
+  Future<Map<String, dynamic>?> myProfile() async => DemoStore.I.profiles.first;
 }
 
 class DemoCatalogRepository implements CatalogRepository {
@@ -100,8 +98,8 @@ class DemoDashboardRepository implements DashboardRepository {
   Future<List<LatestVoteRow>> latestVotes() async {
     final rows = <LatestVoteRow>[];
     for (final r in _store.rollup()) {
-      final latest = _store.submissions
-          .firstWhere((s) => s.id == r.latestSubmissionId);
+      final latest =
+          _store.submissions.firstWhere((s) => s.id == r.latestSubmissionId);
       for (final v in latest.votes) {
         final party = _store.parties.firstWhere(
           (p) => p.abbr == v.abbr,

@@ -20,8 +20,8 @@ class PuBadge extends StatelessWidget {
     }
     if (r.conflictFlag) {
       return const Chip(
-        avatar: Icon(Icons.warning_amber_rounded,
-            color: Colors.white, size: 18),
+        avatar:
+            Icon(Icons.warning_amber_rounded, color: Colors.white, size: 18),
         label: Text('Conflict', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.deepOrange,
       );
@@ -29,8 +29,7 @@ class PuBadge extends StatelessWidget {
     if (r.crossChecked) {
       return const Chip(
         avatar: Icon(Icons.verified, color: Colors.white, size: 18),
-        label: Text('Cross-checked',
-            style: TextStyle(color: Colors.white)),
+        label: Text('Cross-checked', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.green,
       );
     }

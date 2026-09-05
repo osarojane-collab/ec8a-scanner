@@ -80,10 +80,14 @@ class CatalogRepository {
         .from('team_assignments')
         .select('polling_unit_id')
         .inFilter('team_id', teamIds);
-    final ids = rows.map((r) => r['polling_unit_id'] as String).toSet().toList();
+    final ids =
+        rows.map((r) => r['polling_unit_id'] as String).toSet().toList();
     if (ids.isEmpty) return const [];
-    final pus =
-        await _c.from('polling_units').select().inFilter('id', ids).order('code');
+    final pus = await _c
+        .from('polling_units')
+        .select()
+        .inFilter('id', ids)
+        .order('code');
     return pus.map(PollingUnit.fromJson).toList();
   }
 

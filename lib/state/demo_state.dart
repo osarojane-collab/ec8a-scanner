@@ -47,11 +47,36 @@ class DemoStore {
   // NOTE: the outer lists are intentionally non-const so demo admin
   // operations (import PUs, add team, confirm party) can mutate them.
   final List<Party> parties = [
-    Party(id: 'd-ndc', abbr: 'NDC', name: 'Nigeria Democratic Congress', color: '#046A38', status: 'confirmed'),
-    Party(id: 'd-apc', abbr: 'APC', name: 'All Progressives Congress', color: '#4B5563', status: 'confirmed'),
-    Party(id: 'd-pdp', abbr: 'PDP', name: 'Peoples Democratic Party', color: '#4B5563', status: 'confirmed'),
-    Party(id: 'd-lp', abbr: 'LP', name: 'Labour Party', color: '#4B5563', status: 'confirmed'),
-    Party(id: 'd-nnpp', abbr: 'NNPP', name: 'New Nigeria Peoples Party', color: '#4B5563', status: 'confirmed'),
+    Party(
+        id: 'd-ndc',
+        abbr: 'NDC',
+        name: 'Nigeria Democratic Congress',
+        color: '#046A38',
+        status: 'confirmed'),
+    Party(
+        id: 'd-apc',
+        abbr: 'APC',
+        name: 'All Progressives Congress',
+        color: '#4B5563',
+        status: 'confirmed'),
+    Party(
+        id: 'd-pdp',
+        abbr: 'PDP',
+        name: 'Peoples Democratic Party',
+        color: '#4B5563',
+        status: 'confirmed'),
+    Party(
+        id: 'd-lp',
+        abbr: 'LP',
+        name: 'Labour Party',
+        color: '#4B5563',
+        status: 'confirmed'),
+    Party(
+        id: 'd-nnpp',
+        abbr: 'NNPP',
+        name: 'New Nigeria Peoples Party',
+        color: '#4B5563',
+        status: 'confirmed'),
   ];
 
   final Election election = const Election(
@@ -69,18 +94,75 @@ class DemoStore {
   ];
 
   final List<Map<String, dynamic>> profiles = [
-    {'id': 'demo-user', 'full_name': 'Demo Agent', 'email': 'demo@ndc.ng', 'role': 'admin'},
-    {'id': 'demo-agent-2', 'full_name': 'Bola Agent', 'email': 'bola@ndc.ng', 'role': 'agent'},
-    {'id': 'demo-agent-3', 'full_name': 'Chidi Agent', 'email': 'chidi@ndc.ng', 'role': 'agent'},
-    {'id': 'demo-agent-4', 'full_name': 'Ngozi Agent', 'email': 'ngozi@ndc.ng', 'role': 'agent'},
+    {
+      'id': 'demo-user',
+      'full_name': 'Demo Agent',
+      'email': 'demo@ndc.ng',
+      'role': 'admin'
+    },
+    {
+      'id': 'demo-agent-2',
+      'full_name': 'Bola Agent',
+      'email': 'bola@ndc.ng',
+      'role': 'agent'
+    },
+    {
+      'id': 'demo-agent-3',
+      'full_name': 'Chidi Agent',
+      'email': 'chidi@ndc.ng',
+      'role': 'agent'
+    },
+    {
+      'id': 'demo-agent-4',
+      'full_name': 'Ngozi Agent',
+      'email': 'ngozi@ndc.ng',
+      'role': 'agent'
+    },
   ];
 
   final List<PollingUnit> pus = [
-    const PollingUnit(id: 'd-pu1', code: '25/06/01/001', name: 'Kabusa I - Open Space', state: 'FCT', lga: 'Municipal', ward: 'Kabusa'),    const PollingUnit(id: 'd-pu2', code: '25/06/01/002', name: 'Kabusa II - Market Sq', state: 'FCT', lga: 'Municipal', ward: 'Kabusa'),
-    const PollingUnit(id: 'd-pu3', code: '25/06/01/003', name: 'Kpanji - Primary School', state: 'FCT', lga: 'Municipal', ward: 'Kpanji'),
-    const PollingUnit(id: 'd-pu4', code: '25/06/02/001', name: 'Gwarinpa I - Junction', state: 'FCT', lga: 'Municipal', ward: 'Gwarinpa'),
-    const PollingUnit(id: 'd-pu5', code: '25/06/02/002', name: 'Gwarinpa II - School', state: 'FCT', lga: 'Municipal', ward: 'Gwarinpa'),
-    const PollingUnit(id: 'd-pu6', code: '25/06/02/003', name: 'Gwarinpa III - Health Ctr', state: 'FCT', lga: 'Municipal', ward: 'Gwarinpa'),
+    const PollingUnit(
+        id: 'd-pu1',
+        code: '25/06/01/001',
+        name: 'Kabusa I - Open Space',
+        state: 'FCT',
+        lga: 'Municipal',
+        ward: 'Kabusa'),
+    const PollingUnit(
+        id: 'd-pu2',
+        code: '25/06/01/002',
+        name: 'Kabusa II - Market Sq',
+        state: 'FCT',
+        lga: 'Municipal',
+        ward: 'Kabusa'),
+    const PollingUnit(
+        id: 'd-pu3',
+        code: '25/06/01/003',
+        name: 'Kpanji - Primary School',
+        state: 'FCT',
+        lga: 'Municipal',
+        ward: 'Kpanji'),
+    const PollingUnit(
+        id: 'd-pu4',
+        code: '25/06/02/001',
+        name: 'Gwarinpa I - Junction',
+        state: 'FCT',
+        lga: 'Municipal',
+        ward: 'Gwarinpa'),
+    const PollingUnit(
+        id: 'd-pu5',
+        code: '25/06/02/002',
+        name: 'Gwarinpa II - School',
+        state: 'FCT',
+        lga: 'Municipal',
+        ward: 'Gwarinpa'),
+    const PollingUnit(
+        id: 'd-pu6',
+        code: '25/06/02/003',
+        name: 'Gwarinpa III - Health Ctr',
+        state: 'FCT',
+        lga: 'Municipal',
+        ward: 'Gwarinpa'),
   ];
 
   final List<Team> teams = [
@@ -103,22 +185,38 @@ class DemoStore {
 
   void _seed() {
     // PU 1: single entry -> "Recorded"
-    _add(puId: 'd-pu1', accred: 310, total: 291,
+    _add(
+        puId: 'd-pu1',
+        accred: 310,
+        total: 291,
         votes: {'NDC': 152, 'APC': 87, 'PDP': 43, 'LP': 9, 'NNPP': 0},
-        minutesAgo: 95, source: 'ocr');
+        minutesAgo: 95,
+        source: 'ocr');
     // PU 2: two AGREEING entries -> "Cross-checked"
     for (final minutes in [70, 40]) {
-      _add(puId: 'd-pu2', accred: 240, total: 200,
+      _add(
+          puId: 'd-pu2',
+          accred: 240,
+          total: 200,
           votes: {'NDC': 98, 'APC': 60, 'PDP': 30, 'LP': 12},
-          minutesAgo: minutes, source: 'ocr');
+          minutesAgo: minutes,
+          source: 'ocr');
     }
     // PU 3: two CONFLICTING entries -> "Conflict"
-    _add(puId: 'd-pu3', accred: 180, total: 130,
+    _add(
+        puId: 'd-pu3',
+        accred: 180,
+        total: 130,
         votes: {'NDC': 70, 'APC': 55, 'PDP': 5},
-        minutesAgo: 55, source: 'manual');
-    _add(puId: 'd-pu3', accred: 180, total: 135,
+        minutesAgo: 55,
+        source: 'manual');
+    _add(
+        puId: 'd-pu3',
+        accred: 180,
+        total: 135,
         votes: {'NDC': 75, 'APC': 55, 'PDP': 5},
-        minutesAgo: 20, source: 'ocr');
+        minutesAgo: 20,
+        source: 'ocr');
   }
 
   void _add({

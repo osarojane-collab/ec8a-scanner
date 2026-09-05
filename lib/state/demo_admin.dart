@@ -34,7 +34,8 @@ class DemoAdminRepository implements AdminRepository {
   }
 
   @override
-  Future<void> addTeam(String name, String? state, String? lga, String? ward) async {
+  Future<void> addTeam(
+      String name, String? state, String? lga, String? ward) async {
     _store.teams.add(Team(id: 'd-team-${_store.teams.length + 1}', name: name));
   }
 
@@ -48,21 +49,27 @@ class DemoAdminRepository implements AdminRepository {
   }
 
   @override
-  Future<void> addMember(String teamId, String userId, {bool lead = false}) async =>
-      _store.members.add({'team_id': teamId, 'user_id': userId, 'is_lead': lead});
+  Future<void> addMember(String teamId, String userId,
+          {bool lead = false}) async =>
+      _store.members
+          .add({'team_id': teamId, 'user_id': userId, 'is_lead': lead});
 
   @override
   Future<void> removeMember(String teamId, String userId) async =>
-      _store.members.removeWhere(
-          (m) => m['team_id'] == teamId && m['user_id'] == userId);
+      _store.members
+          .removeWhere((m) => m['team_id'] == teamId && m['user_id'] == userId);
 
   @override
   Future<void> confirmParty(String partyId) async {
     final i = _store.parties.indexWhere((p) => p.id == partyId);
     if (i >= 0) {
       final p = _store.parties[i];
-      _store.parties[i] =
-          Party(id: p.id, abbr: p.abbr, name: p.name, color: p.color, status: 'confirmed');
+      _store.parties[i] = Party(
+          id: p.id,
+          abbr: p.abbr,
+          name: p.name,
+          color: p.color,
+          status: 'confirmed');
     }
   }
 
@@ -71,8 +78,8 @@ class DemoAdminRepository implements AdminRepository {
     final i = _store.parties.indexWhere((p) => p.id == partyId);
     if (i >= 0) {
       final p = _store.parties[i];
-      _store.parties[i] =
-          Party(id: p.id, abbr: p.abbr, name: name, color: p.color, status: p.status);
+      _store.parties[i] = Party(
+          id: p.id, abbr: p.abbr, name: name, color: p.color, status: p.status);
     }
   }
 
@@ -91,8 +98,8 @@ class DemoAdminRepository implements AdminRepository {
             {
               'user_id': m['user_id'],
               'is_lead': m['is_lead'],
-              'profiles': _store.profiles
-                  .firstWhere((p) => p['id'] == m['user_id']),
+              'profiles':
+                  _store.profiles.firstWhere((p) => p['id'] == m['user_id']),
             },
       ];
 

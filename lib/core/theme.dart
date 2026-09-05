@@ -25,7 +25,8 @@ class AppTheme {
         elevation: 1,
         margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       ),
-      snackBarTheme: const SnackBarThemeData(behavior: SnackBarBehavior.floating),
+      snackBarTheme:
+          const SnackBarThemeData(behavior: SnackBarBehavior.floating),
     );
   }
 

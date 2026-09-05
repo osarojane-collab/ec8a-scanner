@@ -200,8 +200,7 @@ class _TeamsTab extends ConsumerWidget {
                 decoration: const InputDecoration(labelText: 'Team name')),
             TextField(
                 controller: lga,
-                decoration:
-                    const InputDecoration(labelText: 'LGA (optional)')),
+                decoration: const InputDecoration(labelText: 'LGA (optional)')),
             TextField(
                 controller: ward,
                 decoration:
@@ -249,8 +248,7 @@ class _TeamsTab extends ConsumerWidget {
                 title: Text(t.name),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (_) => AdminTeamDetail(team: t)),
+                  MaterialPageRoute(builder: (_) => AdminTeamDetail(team: t)),
                 ),
               ),
           ],

@@ -22,9 +22,8 @@ class _PuDetailScreenState extends ConsumerState<PuDetailScreen> {
   @override
   void initState() {
     super.initState();
-    _entries = ref
-        .read(submissionRepoProvider)
-        .entriesForPu(widget.rollup.puId);
+    _entries =
+        ref.read(submissionRepoProvider).entriesForPu(widget.rollup.puId);
   }
 
   @override

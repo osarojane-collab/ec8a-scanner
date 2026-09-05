@@ -34,8 +34,11 @@ QrParseResult parseEc8aQr(String payload, Set<String> knownAbbrs) {
 
   void addRow(String abbr, int votes, double confidence, {String? name}) {
     // Same abbreviation appearing twice: last value wins.
-    rows[abbr.toUpperCase()] =
-        ParsedRow(abbr: abbr.toUpperCase(), fullName: name, votes: votes, confidence: confidence);
+    rows[abbr.toUpperCase()] = ParsedRow(
+        abbr: abbr.toUpperCase(),
+        fullName: name,
+        votes: votes,
+        confidence: confidence);
   }
 
   final trimmed = payload.trim();
@@ -46,8 +49,7 @@ QrParseResult parseEc8aQr(String payload, Set<String> knownAbbrs) {
       final obj = jsonDecode(trimmed) as Map<String, dynamic>;
       obj.forEach((key, value) {
         final k = key.trim().toUpperCase();
-        final v =
-            value is int ? value : int.tryParse(value.toString().trim());
+        final v = value is int ? value : int.tryParse(value.toString().trim());
         if (v == null || v < 0) return;
         if (known.contains(k)) {
           addRow(k, v, 1.0);

@@ -181,20 +181,20 @@ class _CaptureScreenState extends ConsumerState<CaptureScreen> {
                   ),
                   const SizedBox(height: 8),
                   TextButton.icon(
-                onPressed: _processing
-                    ? null
-                    : () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (_) =>
-                                QrScanScreen(pollingUnit: widget.pollingUnit),
-                          ),
-                        ),
-                icon: const Icon(Icons.qr_code_scanner),
-                label: const Text('Scan QR code instead (newer forms)'),
+                    onPressed: _processing
+                        ? null
+                        : () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) => QrScanScreen(
+                                    pollingUnit: widget.pollingUnit),
+                              ),
+                            ),
+                    icon: const Icon(Icons.qr_code_scanner),
+                    label: const Text('Scan QR code instead (newer forms)'),
+                  ),
+                ],
               ),
-                  ],
-                ),
-              ),
+            ),
           ),
         ],
       ),
