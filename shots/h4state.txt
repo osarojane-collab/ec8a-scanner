@@ -1,0 +1,7 @@
+CSV ready
+3 polling unit(s), 5 parties
+Saved to:
+/data/user/0/com.ndcscanner.ec8a_scanner/app_flutter/ec8a_results_1788554294555.csv
+Copy to clipboard
+Done
+Dismiss

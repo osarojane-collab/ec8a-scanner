@@ -1,0 +1,10 @@
+Admin
+Polling units&#10;Tab 1 of 4
+Parties&#10;Tab 2 of 4
+Teams&#10;Tab 3 of 4
+Export&#10;Tab 4 of 4
+Export results&#10;Generates a CSV with the latest entry for every polling unit (the same numbers as the live tally), one column per party with NDC first, plus duplicate/conflict flags for audit.
+Generate results CSV
+My Units&#10;Tab 1 of 3
+Tally&#10;Tab 2 of 3
+Admin&#10;Tab 3 of 3

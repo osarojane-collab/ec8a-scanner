@@ -1,0 +1,13 @@
+Admin
+Polling units&#10;Tab 1 of 4
+Parties&#10;Tab 2 of 4
+Teams&#10;Tab 3 of 4
+Export&#10;Tab 4 of 4
+NDC — Nigeria Democratic Congress&#10;Confirmed
+APC — All Progressives Congress&#10;Confirmed
+PDP — Peoples Democratic Party&#10;Confirmed
+LP — Labour Party&#10;Confirmed
+NNPP — New Nigeria Peoples Party&#10;Confirmed
+My Units&#10;Tab 1 of 3
+Tally&#10;Tab 2 of 3
+Admin&#10;Tab 3 of 3
