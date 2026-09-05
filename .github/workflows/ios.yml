@@ -51,14 +51,13 @@ jobs:
       - name: Build iOS (no codesign for sideloading)
         run: |
           flutter build ios --release --no-codesign
-          cd ios
           mkdir -p Payload
-          cp -r build/Release-iphonesimulator/Runner.app Payload/
-          zip -r ../ec8a-scanner-ios.ipa Payload/
+          cp -r build/ios/iphoneos/Runner.app Payload/
+          zip -r ec8a-scanner-ios.ipa Payload/
 
       - name: Upload IPA artifact
         uses: actions/upload-artifact@v4
         with:
           name: ios-ipa
-          path: ios/ec8a-scanner-ios.ipa
+          path: ec8a-scanner-ios.ipa
           retention-days: 14
