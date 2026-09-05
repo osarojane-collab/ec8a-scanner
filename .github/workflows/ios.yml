@@ -28,18 +28,8 @@ jobs:
         with:
           xcode-version: latest-stable
 
-      - name: Install CocoaPods via Homebrew
-        run: |
-          brew install cocoapods
-          pod --version
-
       - name: Install dependencies
         run: flutter pub get
-
-      - name: Update CocoaPods specs
-        run: |
-          cd ios
-          pod repo update --silent
 
       - name: Analyze
         run: flutter analyze --fatal-infos
@@ -51,7 +41,7 @@ jobs:
         run: |
           flutter build ios --release --no-codesign
           cd ios
-          mkdir -p payload
+          mkdir -p Payload
           cp -r build/Release-iphonesimulator/Runner.app Payload/
           zip -r ../ec8a-scanner-ios.ipa Payload/
 
