@@ -18,7 +18,7 @@ dependencies:
 
   # scanning
   google_mlkit_text_recognition: ^0.17.1
-  mobile_scanner: ^5.2.3
+  mobile_scanner: ^7.0.0
   camera: ^0.11.0+2
 
   # offline queue (file-backed, atomic rename; server idempotency via client_uid)

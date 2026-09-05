@@ -10,7 +10,7 @@ on:
 jobs:
   build-ios:
     name: Build iOS IPA
-    runs-on: macos-latest
+    runs-on: macos-13
 
     steps:
       - name: Checkout code
@@ -28,11 +28,10 @@ jobs:
         with:
           xcode-version: latest-stable
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
+      - name: Install CocoaPods via Homebrew
+        run: |
+          brew install cocoapods
+          pod --version
 
       - name: Install dependencies
         run: flutter pub get
