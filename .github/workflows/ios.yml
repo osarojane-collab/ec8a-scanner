@@ -31,6 +31,11 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Update CocoaPods specs
+        run: |
+          cd ios
+          pod repo update --silent
+
       - name: Analyze
         run: flutter analyze --fatal-infos
 
